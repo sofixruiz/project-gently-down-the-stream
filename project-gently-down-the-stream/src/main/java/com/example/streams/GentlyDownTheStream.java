@@ -95,10 +95,9 @@ public class GentlyDownTheStream {
 
     // TODO - return a single value that represents the average of all of your random numbers
     public Double average() {
-        Double sum = 0.0;
-        for (int i=0; i< integerValues.size(); i++) {
-            sum += integerValues.get(i);
-        }
-        return sum / integerValues.size() ;
+        return integerValues.stream()
+                .mapToInt(i -> i)
+                .average()
+                .getAsDouble();
     }
 }
